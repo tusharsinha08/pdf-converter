@@ -16,12 +16,36 @@ export default function PdfToWordPage() {
         setLoading(true);
 
         try {
-            // API integration will be added later.
-            console.log("Selected file:", file);
+            const formData = new FormData()
+            formData.append("file", file)
 
-            // Temporary simulation
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-        } finally {
+            const response = await fetch("/api/pdf-to-word", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(
+                    data.error || "Failed to convert PDF"
+                )
+            }
+
+            console.log("Conversion successful:", data);
+            
+            // Make sure download URL exists 
+            if (!data.downloadUrl) { 
+                throw new Error("Download URL is missing.");
+            }
+
+            // Open the converted DOCX 
+            window.location.href = data.downloadUrl;
+        }
+        catch (error) {
+            console.error("Error converting PDF:", error);
+        }
+        finally {
             setLoading(false);
         }
     };
