@@ -5,10 +5,13 @@ import { useState } from "react";
 import FileUpload from "@/components/upload/FileUpload";
 import SelectedFile from "@/components/upload/SelectedFile";
 import ConvertButton from "@/components/converter/ConvertButton";
+import DownloadResult from "@/components/converter/DownloadResult";
 
 export default function PdfToWordPage() {
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
+    const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
+    const [downloadFilename, setDownloadFilename] = useState<string>('')
 
     const handleConvert = async () => {
         if (!file) return;
@@ -33,14 +36,24 @@ export default function PdfToWordPage() {
             }
 
             console.log("Conversion successful:", data);
-            
+
             // Make sure download URL exists 
-            if (!data.downloadUrl) { 
+            if (!data.downloadUrl) {
                 throw new Error("Download URL is missing.");
             }
 
-            // Open the converted DOCX 
-            window.location.href = data.downloadUrl;
+            const originalName = data.filename || file.name;
+
+            const nameWithoutExtension = originalName.replace(
+                /\.[^/.]+$/,
+                ""
+            );
+
+            const convertedFilename = `converted - ${nameWithoutExtension}.docx`;
+
+
+            setDownloadUrl(data.downloadUrl);
+            setDownloadFilename(convertedFilename);
         }
         catch (error) {
             console.error("Error converting PDF:", error);
@@ -89,6 +102,15 @@ export default function PdfToWordPage() {
                                     disabled={!file}
                                     loading={loading}
                                 />
+
+                                {downloadUrl && (
+                                    <DownloadResult
+                                        downloadUrl={downloadUrl}
+                                        filename={downloadFilename}
+                                        fileType="PDF"
+                                        convertedFileType="Word"
+                                    />
+                                )}
                             </div>
                         )}
 
