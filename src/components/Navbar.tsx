@@ -13,8 +13,8 @@ export default function Navbar() {
                         Home
                     </Link>
 
-                    <Link href="/compressed" className="hover:text-amber-600">
-                        Compressed
+                    <Link href="/compress" className="hover:text-amber-600">
+                        Compress
                     </Link>
 
                     <Link href="/pdf-to-word" className="hover:text-amber-600">

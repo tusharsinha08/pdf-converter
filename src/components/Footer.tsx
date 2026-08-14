@@ -21,8 +21,8 @@ export default function Footer() {
 
                         <ul className="space-y-2 text-sm text-gray-600">
                             <li>
-                                <Link href="/compressed">
-                                    Compressed
+                                <Link href="/compress">
+                                    Compress
                                 </Link>
                             </li>
 
