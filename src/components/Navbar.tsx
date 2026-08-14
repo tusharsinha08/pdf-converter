@@ -28,15 +28,7 @@ export default function Navbar() {
                     <Link href="/about" className="hover:text-amber-600">
                         About
                     </Link>
-
-                    <Link href="/contact" className="hover:text-amber-600">
-                        Contact
-                    </Link>
                 </nav>
-
-                <button className="rounded-lg bg-amber-600 px-5 py-2 text-white hover:bg-amber-700">
-                    Get Started
-                </button>
             </div>
         </header>
     );
