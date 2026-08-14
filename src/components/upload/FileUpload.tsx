@@ -5,10 +5,12 @@ import { FaFilePdf, FaUpload } from "react-icons/fa";
 
 interface FileUploadProps {
     onFileSelect: (file: File) => void;
+    fileType: string;
 }
 
 export default function FileUpload({
     onFileSelect,
+    fileType,
 }: FileUploadProps) {
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0];
@@ -25,28 +27,28 @@ export default function FileUpload({
             </div>
 
             <h3 className="mt-6 text-xl font-semibold text-slate-900">
-                Select your PDF file
+                Select your {fileType} file
             </h3>
 
             <p className="mt-2 text-sm text-slate-500">
-                Choose a PDF file from your computer
+                Choose a {fileType} file from your computer
             </p>
 
             <label className="mt-6 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-amber-600 px-6 py-3 font-semibold text-white transition hover:bg-amber-700">
                 <FaUpload />
 
-                Select PDF
+                Select {fileType} file
 
                 <input
                     type="file"
-                    accept=".pdf,application/pdf"
+                    accept={fileType === "PDF" ? ".pdf,application/pdf" : ".doc,.docx"}
                     onChange={handleFileChange}
                     className="hidden"
                 />
             </label>
 
             <p className="mt-4 text-xs text-slate-400">
-                PDF files only • Maximum 100 MB
+                {fileType} files only • Maximum 100 MB
             </p>
         </div>
     );

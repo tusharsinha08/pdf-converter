@@ -6,12 +6,14 @@ interface ConvertButtonProps {
     onClick: () => void;
     disabled?: boolean;
     loading?: boolean;
+    convertedFileType: string;
 }
 
 export default function ConvertButton({
     onClick,
     disabled = false,
     loading = false,
+    convertedFileType,
 }: ConvertButtonProps) {
     return (
         <button
@@ -22,7 +24,7 @@ export default function ConvertButton({
         >
             <FaFileWord />
 
-            {loading ? "Converting..." : "Convert to Word"}
+            {loading ? "Converting..." : `Convert to ${convertedFileType}`}
         </button>
     );
 }

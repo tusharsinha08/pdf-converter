@@ -84,12 +84,15 @@ export default function PdfToWordPage() {
             </section>
 
             {/* Upload & Convert */}
-            <section className="px-6 pb-20">
+            <section className="px-6 pb-12">
                 <div className="mx-auto max-w-2xl">
                     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg md:p-10">
 
                         {!file ? (
-                            <FileUpload onFileSelect={setFile} />
+                            <FileUpload
+                                onFileSelect={setFile}
+                                fileType="PDF"
+                            />
                         ) : (
                             <div className="space-y-5">
                                 <SelectedFile
@@ -101,6 +104,7 @@ export default function PdfToWordPage() {
                                     onClick={handleConvert}
                                     disabled={!file}
                                     loading={loading}
+                                    convertedFileType="Word"
                                 />
 
                                 {downloadUrl && (
@@ -121,69 +125,6 @@ export default function PdfToWordPage() {
                     </p>
                 </div>
             </section>
-
-            {/* How it works */}
-            <section className="border-t bg-white px-6 py-20">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-center">
-                        <h2 className="text-3xl font-bold text-slate-900">
-                            How to Convert PDF to Word
-                        </h2>
-
-                        <p className="mt-3 text-slate-600">
-                            Convert your PDF in three simple steps.
-                        </p>
-                    </div>
-
-                    <div className="mt-12 grid gap-8 md:grid-cols-3">
-                        <Step
-                            number="01"
-                            title="Select PDF"
-                            description="Choose a PDF file from your computer."
-                        />
-
-                        <Step
-                            number="02"
-                            title="Convert"
-                            description="Click the convert button to process your file."
-                        />
-
-                        <Step
-                            number="03"
-                            title="Download"
-                            description="Download your converted Word document."
-                        />
-                    </div>
-                </div>
-            </section>
         </main>
-    );
-}
-
-interface StepProps {
-    number: string;
-    title: string;
-    description: string;
-}
-
-function Step({
-    number,
-    title,
-    description,
-}: StepProps) {
-    return (
-        <div className="text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-600 font-bold text-white">
-                {number}
-            </div>
-
-            <h3 className="mt-5 text-xl font-semibold text-slate-900">
-                {title}
-            </h3>
-
-            <p className="mt-3 leading-7 text-slate-600">
-                {description}
-            </p>
-        </div>
     );
 }
