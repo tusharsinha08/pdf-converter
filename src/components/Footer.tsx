@@ -45,8 +45,8 @@ export default function Footer() {
                             </li>
 
                             <li>
-                                <Link href="/png-to-pdf">
-                                    PNG to PDF
+                                <Link href="/pdf-to-jpg">
+                                    PDF to JPG
                                 </Link>
                             </li>
                         </ul>
