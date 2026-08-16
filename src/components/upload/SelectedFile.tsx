@@ -1,15 +1,18 @@
 "use client";
 
 import { FaFilePdf, FaTimes } from "react-icons/fa";
+import FileTypeIcon from "./FileTypeIcon";
 
 interface SelectedFileProps {
     file: File;
     onRemove: () => void;
+    fileType?: string; // Optional prop to specify the file type
 }
 
 export default function SelectedFile({
     file,
     onRemove,
+    fileType,
 }: SelectedFileProps) {
     const fileSize = (file.size / 1024 / 1024).toFixed(2);
 
@@ -17,7 +20,11 @@ export default function SelectedFile({
         <div className="flex items-center justify-between rounded-xl border bg-white p-4">
             <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-red-50">
-                    <FaFilePdf className="text-xl text-red-500" />
+                    {fileType ? (
+                        <FileTypeIcon fileType={fileType} className="text-xl" />
+                    ) : (
+                        <FaFilePdf className="text-xl text-red-500" />
+                    )}
                 </div>
 
                 <div>
