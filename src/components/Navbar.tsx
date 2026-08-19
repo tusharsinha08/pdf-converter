@@ -97,7 +97,7 @@ export default function Navbar() {
                                     Word to PDF
                                 </Link>
 
-                                {/* <Link
+                                <Link
                                     href="/jpg-to-pdf"
                                     onClick={closeMenu}
                                     className="block rounded-lg px-4 py-3 text-sm hover:bg-amber-50 hover:text-amber-600"
@@ -106,11 +106,11 @@ export default function Navbar() {
                                 </Link>
 
                                 <Link
-                                    href="/png-to-pdf"
+                                    href="/pdf-to-jpg"
                                     onClick={closeMenu}
                                     className="block rounded-lg px-4 py-3 text-sm hover:bg-amber-50 hover:text-amber-600"
                                 >
-                                    PNG to PDF
+                                    PDF to JPG
                                 </Link>
 
                                 <Link
@@ -128,15 +128,6 @@ export default function Navbar() {
                                 >
                                     Excel to PDF
                                 </Link>
-
-                                <Link
-                                    href="/html-to-pdf"
-                                    onClick={closeMenu}
-                                    className="block rounded-lg px-4 py-3 text-sm hover:bg-amber-50 hover:text-amber-600"
-                                >
-                                    HTML to PDF
-                                </Link> */}
-
                             </div>
                         </div>
                     </div>
@@ -214,7 +205,7 @@ export default function Navbar() {
                                     Word to PDF
                                 </Link>
 
-                                {/* <Link
+                                <Link
                                     href="/jpg-to-pdf"
                                     onClick={closeMenu}
                                     className="block rounded-lg px-3 py-2.5 text-sm hover:bg-amber-50 hover:text-amber-600"
@@ -223,11 +214,11 @@ export default function Navbar() {
                                 </Link>
 
                                 <Link
-                                    href="/png-to-pdf"
+                                    href="/pdf-to-jpg"
                                     onClick={closeMenu}
                                     className="block rounded-lg px-3 py-2.5 text-sm hover:bg-amber-50 hover:text-amber-600"
                                 >
-                                    PNG to PDF
+                                    PDF to JPG
                                 </Link>
 
                                 <Link
@@ -245,14 +236,6 @@ export default function Navbar() {
                                 >
                                     Excel to PDF
                                 </Link>
-
-                                <Link
-                                    href="/html-to-pdf"
-                                    onClick={closeMenu}
-                                    className="block rounded-lg px-3 py-2.5 text-sm hover:bg-amber-50 hover:text-amber-600"
-                                >
-                                    HTML to PDF
-                                </Link> */}
                             </div>
                         )}
 
